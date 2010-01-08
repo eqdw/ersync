@@ -16,7 +16,7 @@ call(Data) ->
     md4_interface ! {self(), Data},
     receive
         {md4_interface, Result} ->
-            Result
+            list_to_binary(Result)
     end.
 
 loop(Port) ->
